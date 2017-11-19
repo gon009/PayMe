@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_weight="10"
+        android:gravity="center">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,22 +22,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_weight="10"
+        android:gravity="center"
+        android:background="@android:color/holo_blue_light">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="Nombre"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="Monto"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+        />
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="Fecha"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+        />
+        <ImageView
+            android:id="@+id/imgViewLoanAdd"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:src="@drawable/create"/>
 
     </LinearLayout>
     <LinearLayout

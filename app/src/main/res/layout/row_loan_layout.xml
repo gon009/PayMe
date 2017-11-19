@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="30"
-        android:id="@+id/txtLoanName"/>
+        android:id="@+id/txtLoanName"
+        android:gravity="center"/>
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="30"
-        android:id="@+id/txtLoanQuantity"/>
+        android:id="@+id/txtLoanQuantity"
+        android:gravity="center"/>
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="30"
-        android:id="@+id/txtLoanDate"/>
+        android:id="@+id/txtLoanDate"
+        android:gravity="center"/>
+    <ImageView
+        android:id="@+id/imgViewLoanDelete"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:src="@drawable/delete"
+        />
 </LinearLayout>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,7 +49,7 @@ public class DebtAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null)
             convertView = inflater.inflate(R.layout.row_debt_layout, parent, false);
 
@@ -60,6 +61,15 @@ public class DebtAdapter extends BaseAdapter {
 
         final TextView txtDate = convertView.findViewById(R.id.txtDebtDate);
         txtDate.setText((debtList.get(position).getDate().toString()));
+        ImageView imgViewDelete = convertView.findViewById(R.id.imgViewDebtDelete);
+
+        imgViewDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                debtList.remove(position);
+                notifyDataSetChanged();
+            }
+        });
         return convertView;
     }
 }
