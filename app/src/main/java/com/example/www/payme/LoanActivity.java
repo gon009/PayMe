@@ -21,15 +21,15 @@ import model.Person;
 public class LoanActivity extends AppCompatActivity {
 
     final Context context = this;
-    private ArrayList<Loan> loanList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loan);
         ListView listViewLoan = (ListView)findViewById(R.id.listViewLoan);
-        loadData();
 
-        LoanAdapter loanAdapter = new LoanAdapter(this, loanList);
+        final Person person = (Person)getIntent().getSerializableExtra("personLoans");
+
+        final LoanAdapter loanAdapter = new LoanAdapter(this, person.getLoanList());
         listViewLoan.setAdapter(loanAdapter);
         final Dialog dialog = new Dialog(context);
 
@@ -52,14 +52,14 @@ public class LoanActivity extends AppCompatActivity {
                         final EditText quantity = dialog.findViewById(R.id.dialogQuantity);
                         final EditText date = dialog.findViewById(R.id.dialogDate);
 
-                        if ((name.toString().trim() != null && name.toString().trim().isEmpty()) ||
-                                (quantity.toString().trim() != null && quantity.toString().trim().isEmpty()) ||
-                                (date.toString().trim() != null && date.toString().trim().isEmpty()))
+                        if ((name.toString()!= null && !name.toString().isEmpty()) ||
+                                (quantity.toString() != null && !quantity.toString().isEmpty()) ||
+                                (date.toString() != null && !date.toString().isEmpty()))
                         {
-                            loanList.add(
+                            person.getLoanList().add(
                                     new Loan(Double.valueOf(quantity.getText().toString()),
                                     new Date(date.getText().toString()),
-                                    new Person(name.getText().toString().trim())));
+                                    new Person(name.getText().toString())));
                             dialog.dismiss();
                         }
                         else
@@ -77,16 +77,4 @@ public class LoanActivity extends AppCompatActivity {
         });
 
     }
-
-    public void loadData()
-    {
-        loanList = new ArrayList<Loan>();
-        loanList.add(new Loan(120 ,new Date(2016,9,10), new Person("Ricardo")));
-        loanList.add(new Loan(120 ,new Date(2016,9,10), new Person("Fernando")));
-        loanList.add(new Loan(111 ,new Date(2016,9,10), new Person("Maria Carmen")));
-        loanList.add(new Loan(13 ,new Date(2016,9,10), new Person("Jesus")));
-        loanList.add(new Loan(14 ,new Date(2016,9,10), new Person("Ximena")));
-        loanList.add(new Loan(10 ,new Date(2016,9,10), new Person("Veronica")));
-    }
-
 }

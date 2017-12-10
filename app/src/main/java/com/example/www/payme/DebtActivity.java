@@ -32,7 +32,9 @@ public class DebtActivity extends AppCompatActivity {
         ListView listViewLoan = (ListView)findViewById(R.id.lIstViewDebt);
         loadData();
 
-        DebtAdapter debtAdapter = new DebtAdapter(this, debtList);
+        final Person person = (Person)getIntent().getSerializableExtra("personDebts");
+
+        DebtAdapter debtAdapter = new DebtAdapter(this, person.getDebtList());
         listViewLoan.setAdapter(debtAdapter);
         final Dialog dialog = new Dialog(context);
 
@@ -59,7 +61,7 @@ public class DebtActivity extends AppCompatActivity {
                                 (quantity.toString() != null && quantity.toString().isEmpty()) ||
                                 (date.toString() != null && date.toString().isEmpty()))
                         {
-                            debtList.add(
+                            person.getDebtList().add(
                                     new Debt(Double.valueOf(quantity.getText().toString()),
                                             new Date(date.getText().toString()),
                                             new Person(name.getText().toString().trim())));

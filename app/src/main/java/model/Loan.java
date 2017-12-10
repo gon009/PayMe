@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by student on 18/11/17.
  */
 
-public class Loan {
+public class Loan implements Serializable {
     private double Quantity;
     private Date Date;
     private Person Person;

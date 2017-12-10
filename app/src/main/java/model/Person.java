@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +8,10 @@ import java.util.List;
  * Created by student on 18/11/17.
  */
 
-public class Person {
+public class Person implements Serializable{
     private String Name;
-    private List<Debt> DebtList;
-    private List<Loan> LoanList;
+    private ArrayList<Debt> DebtList;
+    private ArrayList<Loan> LoanList;
 
     public Person(String name){
         Name = name;
@@ -26,19 +27,19 @@ public class Person {
         Name = name;
     }
 
-    public List<Debt> getDebtList() {
+    public ArrayList<Debt> getDebtList() {
         return DebtList;
     }
 
-    public void setDebtList(List<Debt> debtList) {
+    public void setDebtList(ArrayList<Debt> debtList) {
         DebtList = debtList;
     }
 
-    public List<Loan> getLoanList() {
+    public ArrayList<Loan> getLoanList() {
         return LoanList;
     }
 
-    public void setLoanList(List<Loan> loanList) {
+    public void setLoanList(ArrayList<Loan> loanList) {
         LoanList = loanList;
     }
 }
